@@ -13,15 +13,15 @@ class BrandSelector extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 50,
-          height: 50,
+          width: 70,
+          height: 70,
           decoration: BoxDecoration(
               color: appSecondColor, borderRadius: BorderRadius.circular(8)),
           child: Center(
             child: Image.asset(
               "assets/images/s${index + 1}.png",
-              width: 40,
-              height: 40,
+              width: 50,
+              height: 50,
             ),
           ),
         ),
@@ -42,7 +42,6 @@ class BrandSelector extends StatelessWidget {
         children: [
           SectionHeader(title: 'Shop By Category', action: () {}),
           Expanded(
-            // height: height * .04,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: brands,
