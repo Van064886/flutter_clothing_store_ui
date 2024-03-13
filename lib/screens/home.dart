@@ -15,6 +15,7 @@ class _HomeState extends State<Home> {
     final width = size.width;
     final height = size.height;
     int activeScreen = 1;
+    TextEditingController _searchController = TextEditingController();
 
     return Scaffold(
         bottomNavigationBar: Container(
@@ -56,9 +57,56 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        body: const SafeArea(child: Column(
+        body: SafeArea(
+            child: Column(
           children: [
-            
+            Row(
+              children: [
+                SizedBox(
+                  width: width * .6,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(vertical: 8),
+                      prefixIcon: const Icon(Icons.search),
+                      hintText: 'Search',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey,
+                    ),
+                    controller: _searchController,
+                  ),
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                const MaterialStatePropertyAll(Colors.grey),
+                            foregroundColor:
+                                const MaterialStatePropertyAll(Colors.black),
+                            shape: MaterialStatePropertyAll(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)))),
+                        onPressed: () {},
+                        icon: const Icon(Icons.notifications_none_outlined)),
+                    IconButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                const MaterialStatePropertyAll(Colors.grey),
+                            foregroundColor:
+                                const MaterialStatePropertyAll(Colors.black),
+                            shape: MaterialStatePropertyAll(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)))),
+                        onPressed: () {},
+                        icon: const Icon(Icons.shopping_cart_outlined)),
+                  ],
+                )
+              ],
+            )
           ],
         )));
   }
