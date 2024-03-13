@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:clothing_store_ui/widgets/product_element.dart';
 import 'package:clothing_store_ui/widgets/section_header.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +19,14 @@ class _PopularProductsState extends State<PopularProducts> {
   void initState() {
     super.initState();
     products = List.generate(11, (index) {
-      return const Row(
+      return Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ProductElement(),
-          SizedBox(width: 50,)
+          ProductElement(
+            picture: "assets/images/${index + 1}.png",
+          ),
+          const SizedBox(width: 20,)
         ],
       );
     });

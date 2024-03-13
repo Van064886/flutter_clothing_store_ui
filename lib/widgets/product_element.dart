@@ -2,7 +2,8 @@ import 'package:clothing_store_ui/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductElement extends StatefulWidget {
-  const ProductElement({super.key});
+  final String picture;
+  const ProductElement({super.key, required this.picture});
 
   @override
   State<ProductElement> createState() => _ProductElementState();
@@ -14,7 +15,7 @@ class _ProductElementState extends State<ProductElement> {
     final Size size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width * .41,
+      width: size.width * .45,
       height: size.height * .32,
       decoration: BoxDecoration(
           border: Border.all(color: appSecondColor, width: 2),
@@ -29,7 +30,11 @@ class _ProductElementState extends State<ProductElement> {
               color: appSecondColor,
             ),
             child: Center(
-              child: Image.asset("assets/images/1.png"),
+              child: Image.asset(
+                widget.picture,
+                width: size.width * .40,
+                height: size.width * .40,
+              ),
             ),
           ),
           const SizedBox(
@@ -67,7 +72,7 @@ class _ProductElementState extends State<ProductElement> {
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
                     ),
                     Text(
-                      '800€',
+                      '400€',
                       style: TextStyle(fontWeight: FontWeight.w900),
                     )
                   ],
