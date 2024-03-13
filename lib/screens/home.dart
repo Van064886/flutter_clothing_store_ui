@@ -2,6 +2,7 @@ import 'package:clothing_store_ui/utils/constants.dart';
 import 'package:clothing_store_ui/widgets/bottom_navigation_element.dart';
 import 'package:clothing_store_ui/widgets/brand_selector.dart';
 import 'package:clothing_store_ui/widgets/popular_products.dart';
+import 'package:clothing_store_ui/widgets/recommanded_products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -73,7 +74,8 @@ class _HomeState extends State<Home> {
                       width: width * .62,
                       child: TextField(
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 0),
                           prefixIcon: const Icon(
                             Icons.search,
                             color: Colors.black87,
@@ -100,8 +102,9 @@ class _HomeState extends State<Home> {
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStatePropertyAll(appSecondColor),
-                                  foregroundColor: const MaterialStatePropertyAll(
-                                      Colors.black87),
+                                  foregroundColor:
+                                      const MaterialStatePropertyAll(
+                                          Colors.black87),
                                   shape: MaterialStatePropertyAll(
                                       RoundedRectangleBorder(
                                           borderRadius:
@@ -118,8 +121,9 @@ class _HomeState extends State<Home> {
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStatePropertyAll(appSecondColor),
-                                  foregroundColor: const MaterialStatePropertyAll(
-                                      Colors.black87),
+                                  foregroundColor:
+                                      const MaterialStatePropertyAll(
+                                          Colors.black87),
                                   shape: MaterialStatePropertyAll(
                                       RoundedRectangleBorder(
                                           borderRadius:
@@ -180,7 +184,8 @@ class _HomeState extends State<Home> {
                             ),
                             const Text(
                               "Explore the new spring collection",
-                              style: TextStyle(fontSize: 14, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.white),
                             ),
                             const SizedBox(
                               height: 8,
@@ -188,10 +193,12 @@ class _HomeState extends State<Home> {
                             ElevatedButton(
                               onPressed: () {},
                               style: ButtonStyle(
-                                  backgroundColor: const MaterialStatePropertyAll(
-                                      Colors.white),
+                                  backgroundColor:
+                                      const MaterialStatePropertyAll(
+                                          Colors.white),
                                   foregroundColor:
-                                      const MaterialStatePropertyAll(Colors.blue),
+                                      const MaterialStatePropertyAll(
+                                          Colors.blue),
                                   shape: MaterialStatePropertyAll(
                                       RoundedRectangleBorder(
                                           borderRadius:
@@ -204,10 +211,18 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 5,),
+                const SizedBox(
+                  height: 5,
+                ),
                 BrandSelector(),
-                const SizedBox(height: 5,),
-                PopularProducts()
+                const SizedBox(
+                  height: 5,
+                ),
+                const PopularProducts(),
+                const SizedBox(
+                  height: 5,
+                ),
+                const RecommandedProducts()
               ],
             ),
           ),

@@ -1,18 +1,15 @@
-import 'dart:math';
-
 import 'package:clothing_store_ui/widgets/product_element.dart';
 import 'package:clothing_store_ui/widgets/section_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class PopularProducts extends StatefulWidget {
-  const PopularProducts({super.key});
+class RecommandedProducts extends StatefulWidget {
+  const RecommandedProducts({super.key});
 
   @override
-  State<PopularProducts> createState() => _PopularProductsState();
+  State<RecommandedProducts> createState() => _RecommandedProductsState();
 }
 
-class _PopularProductsState extends State<PopularProducts> {
+class _RecommandedProductsState extends State<RecommandedProducts> {
   List<Widget> products = [];
 
   @override
@@ -26,7 +23,9 @@ class _PopularProductsState extends State<PopularProducts> {
           ProductElement(
             picture: "assets/images/${index + 1}.png",
           ),
-          const SizedBox(width: 20,)
+          const SizedBox(
+            width: 20,
+          )
         ],
       );
     });
@@ -37,15 +36,15 @@ class _PopularProductsState extends State<PopularProducts> {
     final height = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: height * .40,
+      height: height * .43,
       child: Column(
         children: [
-          SectionHeader(title: "Popular", action: () {}),
+          SectionHeader(title: "Recommanded for you", action: () {}),
           SizedBox(
             height: height * 0.35,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: products,
+              children: products.reversed.toList(),
             ),
           )
         ],
