@@ -1,3 +1,4 @@
+import 'package:clothing_store_ui/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -20,7 +21,7 @@ class SplashScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/p1.jpeg"),
+                  image: AssetImage("assets/images/p4.jpeg"),
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.high,
                   colorFilter: ColorFilter.mode(
@@ -47,7 +48,10 @@ class SplashScreen extends StatelessWidget {
                 height: 20,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext context) => const Home()));
+                },
                 style: ButtonStyle(
                     backgroundColor:
                         const MaterialStatePropertyAll(Colors.blue),
