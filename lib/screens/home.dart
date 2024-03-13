@@ -64,14 +64,14 @@ class _HomeState extends State<Home> {
         ),
         body: SafeArea(
             child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Row(
                   children: [
                     SizedBox(
-                      width: width * .62,
+                      width: width * .60,
                       child: TextField(
                         decoration: InputDecoration(
                           contentPadding:
@@ -117,6 +117,7 @@ class _HomeState extends State<Home> {
                                   size: 25,
                                 ),
                               )),
+                          const SizedBox(width: 5,),
                           IconButton(
                               style: ButtonStyle(
                                   backgroundColor:

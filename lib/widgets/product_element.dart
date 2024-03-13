@@ -69,7 +69,7 @@ class _ProductElementState extends State<ProductElement> {
                     Text(
                       "Pullover hoodie",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
                     ),
                     Text(
                       '400€',

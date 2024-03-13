@@ -26,7 +26,7 @@ class _PopularProductsState extends State<PopularProducts> {
           ProductElement(
             picture: "assets/images/${index + 1}.png",
           ),
-          const SizedBox(width: 20,)
+          const SizedBox(width: 8,)
         ],
       );
     });

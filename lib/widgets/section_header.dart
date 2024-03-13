@@ -15,17 +15,16 @@ class SectionHeader extends StatelessWidget {
           SizedBox(
               child: Text(
             title,
-            style: const TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
           )),
           SizedBox(
             child: TextButton(
-              style: const ButtonStyle(
-                padding: MaterialStatePropertyAll(EdgeInsets.zero)
-              ),
+                style: const ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.zero)),
                 onPressed: action,
                 child: const Text(
                   "See more",
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(color: Colors.blue, fontSize: 12),
                 )),
           )
         ],

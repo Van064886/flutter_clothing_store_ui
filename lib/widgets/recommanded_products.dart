@@ -24,7 +24,7 @@ class _RecommandedProductsState extends State<RecommandedProducts> {
             picture: "assets/images/${index + 1}.png",
           ),
           const SizedBox(
-            width: 20,
+            width: 8,
           )
         ],
       );
