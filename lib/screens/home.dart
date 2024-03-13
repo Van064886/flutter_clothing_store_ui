@@ -1,5 +1,8 @@
+import 'package:clothing_store_ui/utils/constants.dart';
 import 'package:clothing_store_ui/widgets/bottom_navigation_element.dart';
+import 'package:clothing_store_ui/widgets/brand_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,7 +23,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
         bottomNavigationBar: Container(
           height: height * .09,
-          color: const Color.fromARGB(153, 236, 236, 236),
+          color: appSecondColor,
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,56 +61,151 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: SafeArea(
-            child: Column(
-          children: [
-            Row(
-              children: [
-                SizedBox(
-                  width: width * .6,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 8),
-                      prefixIcon: const Icon(Icons.search),
-                      hintText: 'Search',
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(8.0),
+            child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: width * .62,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                        prefixIcon: const Icon(
+                          Icons.search,
+                          color: Colors.black87,
+                        ),
+                        hintText: 'Search',
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        filled: true,
+                        fillColor: appSecondColor,
                       ),
-                      filled: true,
-                      fillColor: Colors.grey,
+                      controller: _searchController,
                     ),
-                    controller: _searchController,
                   ),
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                const MaterialStatePropertyAll(Colors.grey),
-                            foregroundColor:
-                                const MaterialStatePropertyAll(Colors.black),
-                            shape: MaterialStatePropertyAll(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)))),
-                        onPressed: () {},
-                        icon: const Icon(Icons.notifications_none_outlined)),
-                    IconButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                const MaterialStatePropertyAll(Colors.grey),
-                            foregroundColor:
-                                const MaterialStatePropertyAll(Colors.black),
-                            shape: MaterialStatePropertyAll(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)))),
-                        onPressed: () {},
-                        icon: const Icon(Icons.shopping_cart_outlined)),
-                  ],
-                )
-              ],
-            )
-          ],
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll(appSecondColor),
+                                foregroundColor: const MaterialStatePropertyAll(
+                                    Colors.black87),
+                                shape: MaterialStatePropertyAll(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8)))),
+                            onPressed: () {},
+                            icon: const Padding(
+                              padding: EdgeInsets.all(4.0),
+                              child: Icon(
+                                Icons.notifications_none_outlined,
+                                size: 25,
+                              ),
+                            )),
+                        IconButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll(appSecondColor),
+                                foregroundColor: const MaterialStatePropertyAll(
+                                    Colors.black87),
+                                shape: MaterialStatePropertyAll(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8)))),
+                            onPressed: () {},
+                            icon: const Padding(
+                              padding: EdgeInsets.all(4.0),
+                              child: Icon(
+                                Icons.shopping_cart_outlined,
+                                size: 25,
+                              ),
+                            )),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    height: height * .25,
+                    width: width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      image: const DecorationImage(
+                        image: AssetImage("assets/images/p2.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    height: height * .25,
+                    width: width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      gradient: const LinearGradient(
+                        colors: [
+                          Colors.blue,
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                    child: Container(
+                      padding: const EdgeInsets.only(left: 20),
+                      width: width * .5,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "New spring collection",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 30,
+                                color: Colors.white),
+                          ),
+                          const Text(
+                            "Explore the new spring collection",
+                            style: TextStyle(fontSize: 14, color: Colors.white),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                                backgroundColor: const MaterialStatePropertyAll(
+                                    Colors.white),
+                                foregroundColor:
+                                    const MaterialStatePropertyAll(Colors.blue),
+                                shape: MaterialStatePropertyAll(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8)))),
+                            child: const Text('Shop now'),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8,),
+              BrandSelector()
+            ],
+          ),
         )));
   }
 }
