@@ -1,7 +1,5 @@
 import 'package:clothing_store_ui/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});
@@ -92,18 +90,21 @@ class _ProductDetailsState extends State<ProductDetails> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 10),
+                margin: const EdgeInsets.only(top: 10),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: appSecondColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
-                  child: Image.asset(
-                    "assets/images/1.png",
-                    fit: BoxFit.cover,
-                    height: size.width * .8,
-                    width: size.width * .8,
+                  child: Hero(
+                    tag: '_productElement',
+                    child: Image.asset(
+                      "assets/images/1.png",
+                      fit: BoxFit.cover,
+                      height: size.width * .8,
+                      width: size.width * .8,
+                    ),
                   ),
                 ),
               ),

@@ -38,10 +38,13 @@ class _ProductElementState extends State<ProductElement> {
                 color: appSecondColor,
               ),
               child: Center(
-                child: Image.asset(
-                  widget.picture,
-                  width: size.width * .40,
-                  height: size.width * .40,
+                child: Hero(
+                  tag: "_productElement",
+                  child: Image.asset(
+                    widget.picture,
+                    width: size.width * .40,
+                    height: size.width * .40,
+                  ),
                 ),
               ),
             ),
