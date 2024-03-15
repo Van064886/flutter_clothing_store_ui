@@ -11,10 +11,13 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  final List<String> _productSizes = ['S', 'M', 'L', 'XL'];
+  String _selectedSize = 'S';
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    List<Widget> _products = List.generate(8, (index) {
+    List<Widget> products = List.generate(8, (index) {
       return Row(
         children: [
           Container(
@@ -117,7 +120,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 height: 80,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: _products,
+                  children: products,
                 ),
               ),
               const SizedBox(
@@ -165,7 +168,37 @@ class _ProductDetailsState extends State<ProductDetails> {
               const SizedBox(height: 8),
               const Text(
                 "Select size :",
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                children: _productSizes.map((e) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedSize = e;
+                      });
+                    },
+                    child: AnimatedContainer(
+                        width: 50,
+                        height: 50,
+                        margin: const EdgeInsets.only(right: 12),
+                        duration: const Duration(seconds: 1),
+                        decoration: BoxDecoration(
+                            color: _selectedSize == e
+                                ? Colors.blue
+                                : appSecondColor,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Center(
+                            child: Text(
+                          e,
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w800),
+                        ))),
+                  );
+                }).toList(),
               )
             ],
           ),
