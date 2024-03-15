@@ -1,8 +1,10 @@
+import 'package:clothing_store_ui/models/product.dart';
 import 'package:clothing_store_ui/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatefulWidget {
-  const ProductDetails({super.key});
+  Product product;
+  ProductDetails({super.key, required this.product});
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -19,10 +21,9 @@ class _ProductDetailsState extends State<ProductDetails> {
             width: 80,
             height: 80,
             decoration: BoxDecoration(
-              border: Border.all(
-                  color: index == 0 ? Colors.blue : Colors.grey, width: 3),
-              borderRadius: BorderRadius.circular(8)
-            ),
+                border: Border.all(
+                    color: index == 0 ? Colors.blue : Colors.grey, width: 3),
+                borderRadius: BorderRadius.circular(8)),
             child: Center(
               child: Image.asset(
                 "assets/images/${index + 1}.png",
@@ -87,6 +88,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         child: Container(
           padding: const EdgeInsets.all(8),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
@@ -98,7 +100,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ),
                 child: Center(
                   child: Hero(
-                    tag: '_productElement',
+                    tag: '_productElement1',
                     child: Image.asset(
                       "assets/images/1.png",
                       fit: BoxFit.cover,
@@ -117,6 +119,53 @@ class _ProductDetailsState extends State<ProductDetails> {
                   scrollDirection: Axis.horizontal,
                   children: _products,
                 ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 10,
+                        backgroundImage:
+                            Image.asset("assets/images/p6.jpeg").image,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      const Text(
+                        "Pinky pull overs",
+                        style: TextStyle(fontSize: 12),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Pullover hoodie",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 18),
+                      ),
+                      Text(
+                        '400€',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900, fontSize: 18),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              const Divider(),
+              const SizedBox(height: 8),
+              const Text(
+                "Select size :",
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
               )
             ],
           ),

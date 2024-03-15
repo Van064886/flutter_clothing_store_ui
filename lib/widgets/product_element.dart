@@ -1,10 +1,13 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:clothing_store_ui/models/product.dart';
 import 'package:clothing_store_ui/screens/product_details.dart';
 import 'package:clothing_store_ui/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductElement extends StatefulWidget {
-  final String picture;
-  const ProductElement({super.key, required this.picture});
+  Product product;
+  ProductElement({super.key, required this.product});
 
   @override
   State<ProductElement> createState() => _ProductElementState();
@@ -19,7 +22,7 @@ class _ProductElementState extends State<ProductElement> {
       onTap: () {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (BuildContext context) {
-          return const ProductDetails();
+          return ProductDetails(product: widget.product,);
         }));
       },
       child: Container(
@@ -39,9 +42,9 @@ class _ProductElementState extends State<ProductElement> {
               ),
               child: Center(
                 child: Hero(
-                  tag: "_productElement",
+                  tag: "_productElement_${widget.product.id!}",
                   child: Image.asset(
-                    widget.picture,
+                    widget.product.picture!,
                     width: size.width * .40,
                     height: size.width * .40,
                   ),

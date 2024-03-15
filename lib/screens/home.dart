@@ -4,7 +4,6 @@ import 'package:clothing_store_ui/widgets/brand_selector.dart';
 import 'package:clothing_store_ui/widgets/popular_products.dart';
 import 'package:clothing_store_ui/widgets/recommanded_products.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
