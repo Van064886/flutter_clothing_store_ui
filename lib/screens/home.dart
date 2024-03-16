@@ -3,7 +3,9 @@ import 'package:clothing_store_ui/widgets/bottom_navigation_element.dart';
 import 'package:clothing_store_ui/widgets/brand_selector.dart';
 import 'package:clothing_store_ui/widgets/popular_products.dart';
 import 'package:clothing_store_ui/widgets/recommanded_products.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -70,7 +72,7 @@ class _HomeState extends State<Home> {
                 Row(
                   children: [
                     SizedBox(
-                      width: width * .60,
+                      width: width * .55,
                       child: TextField(
                         decoration: InputDecoration(
                           contentPadding:
@@ -97,45 +99,49 @@ class _HomeState extends State<Home> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStatePropertyAll(appSecondColor),
-                                  foregroundColor:
-                                      const MaterialStatePropertyAll(
-                                          Colors.black87),
-                                  shape: MaterialStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8)))),
-                              onPressed: () {},
-                              icon: const Padding(
-                                padding: EdgeInsets.all(4.0),
-                                child: Icon(
-                                  Icons.notifications_none_outlined,
-                                  size: 25,
-                                ),
-                              )),
-                          const SizedBox(width: 5,),
-                          IconButton(
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStatePropertyAll(appSecondColor),
-                                  foregroundColor:
-                                      const MaterialStatePropertyAll(
-                                          Colors.black87),
-                                  shape: MaterialStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8)))),
-                              onPressed: () {},
-                              icon: const Padding(
-                                padding: EdgeInsets.all(4.0),
-                                child: Icon(
-                                  Icons.shopping_cart_outlined,
-                                  size: 25,
-                                ),
-                              )),
+                          Flexible(
+                            child: IconButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(
+                                        appSecondColor),
+                                    foregroundColor:
+                                        const MaterialStatePropertyAll(
+                                            Colors.black87),
+                                    shape: MaterialStatePropertyAll(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8)))),
+                                onPressed: () {},
+                                icon: const Padding(
+                                  padding: EdgeInsets.all(4.0),
+                                  child: Icon(
+                                    Icons.notifications_none_outlined,
+                                    size: 25,
+                                  ),
+                                )),
+                          ),
+                          // const SizedBox(width: 5,),
+                          Flexible(
+                            child: IconButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(
+                                        appSecondColor),
+                                    foregroundColor:
+                                        const MaterialStatePropertyAll(
+                                            Colors.black87),
+                                    shape: MaterialStatePropertyAll(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8)))),
+                                onPressed: () {},
+                                icon: const Padding(
+                                  padding: EdgeInsets.all(4.0),
+                                  child: Icon(
+                                    Icons.shopping_cart_outlined,
+                                    size: 25,
+                                  ),
+                                )),
+                          ),
                         ],
                       ),
                     )

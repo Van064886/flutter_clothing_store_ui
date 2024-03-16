@@ -155,10 +155,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                   color: appSecondColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Center(
-                  child: InteractiveViewer(
+                child: InteractiveViewer(
+                  child: Center( 
                     child: Hero(
-                      tag: '_productElement1',
+                      tag: widget.product.id.toString(),
                       child: Image.asset(
                         _displayedImage,
                         fit: BoxFit.cover,

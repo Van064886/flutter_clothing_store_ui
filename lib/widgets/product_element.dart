@@ -22,7 +22,9 @@ class _ProductElementState extends State<ProductElement> {
       onTap: () {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (BuildContext context) {
-          return ProductDetails(product: widget.product,);
+          return ProductDetails(
+            product: widget.product,
+          );
         }));
       },
       child: Container(
@@ -42,7 +44,7 @@ class _ProductElementState extends State<ProductElement> {
               ),
               child: Center(
                 child: Hero(
-                  tag: "_productElement_${widget.product.id!}",
+                  tag: widget.product.id.toString(),
                   child: Image.asset(
                     widget.product.picture!,
                     width: size.width * .40,
