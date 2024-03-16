@@ -158,39 +158,49 @@ class _ProductDetailsState extends State<ProductDetails> {
               Column(
                 children: [
                   Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 10,
-                        backgroundImage:
-                            Image.asset("assets/images/p6.jpeg").image,
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      const Text(
-                        "Pinky pull overs",
-                        style: TextStyle(fontSize: 12),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "Pullover hoodie",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 18),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundImage:
+                                Image.asset("assets/images/p6.jpeg").image,
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          const Text(
+                            "Pinky pull overs",
+                            style: TextStyle(fontSize: 12),
+                          )
+                        ],
                       ),
-                      Text(
+                      const Text(
                         '400€',
                         style: TextStyle(
                             fontWeight: FontWeight.w900, fontSize: 18),
                       )
                     ],
-                  )
+                  ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  // const Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Text(
+                  //       "Pullover hoodie",
+                  //       style: TextStyle(
+                  //           fontWeight: FontWeight.w600, fontSize: 18),
+                  //     ),
+                  //     Text(
+                  //       '400€',
+                  //       style: TextStyle(
+                  //           fontWeight: FontWeight.w900, fontSize: 18),
+                  //     )
+                  //   ],
+                  // )
                 ],
               ),
               Divider(
