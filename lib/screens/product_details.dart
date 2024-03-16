@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:clothing_store_ui/models/product.dart';
 import 'package:clothing_store_ui/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,6 +16,7 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   final List<String> _productSizes = ['S', 'M', 'L', 'XL'];
   String _selectedSize = 'S';
+  String _displayedImage = '';
   final List<String> _productDescription = [
     'Elevate your fashion game with the "Elegance Wrap Dress" and experience the epitome of sophistication and comfort.',
     'Its flattering silhouette and elegant design make it perfect for both casual outings and special occasions.',
@@ -22,23 +24,40 @@ class _ProductDetailsState extends State<ProductDetails> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _displayedImage = widget.product.picture!;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+
     List<Widget> products = List.generate(8, (index) {
       return Row(
         children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-                border: Border.all(
-                    color: index == 0 ? Colors.blue : Colors.grey, width: 3),
-                borderRadius: BorderRadius.circular(8)),
-            child: Center(
-              child: Image.asset(
-                "assets/images/${index + 1}.png",
-                width: 40,
-                height: 40,
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                _displayedImage = "assets/images/${index + 1}.png";
+              });
+            },
+            child: Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      color: "assets/images/${index + 1}.png" == _displayedImage
+                          ? Colors.blue
+                          : Colors.grey,
+                      width: 3),
+                  borderRadius: BorderRadius.circular(8)),
+              child: Center(
+                child: Image.asset(
+                  "assets/images/${index + 1}.png",
+                  width: 40,
+                  height: 40,
+                ),
               ),
             ),
           ),
@@ -131,13 +150,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
-                  child: Hero(
-                    tag: '_productElement1',
-                    child: Image.asset(
-                      "assets/images/1.png",
-                      fit: BoxFit.cover,
-                      height: size.width * .6,
-                      width: size.width * .6,
+                  child: InteractiveViewer(
+                    child: Hero(
+                      tag: '_productElement1',
+                      child: Image.asset(
+                        _displayedImage,
+                        fit: BoxFit.cover,
+                        height: size.width * .6,
+                        width: size.width * .6,
+                      ),
                     ),
                   ),
                 ),
