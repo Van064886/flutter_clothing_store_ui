@@ -1,6 +1,8 @@
 import 'package:clothing_store_ui/models/product.dart';
 import 'package:clothing_store_ui/utils/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ProductDetails extends StatefulWidget {
   Product product;
@@ -13,6 +15,11 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   final List<String> _productSizes = ['S', 'M', 'L', 'XL'];
   String _selectedSize = 'S';
+  final List<String> _productDescription = [
+    'Elevate your fashion game with the "Elegance Wrap Dress" and experience the epitome of sophistication and comfort.',
+    'Its flattering silhouette and elegant design make it perfect for both casual outings and special occasions.',
+    ' Crafted from premium, breathable fabric, this dress effortlessly combines comfort with style.'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +28,8 @@ class _ProductDetailsState extends State<ProductDetails> {
       return Row(
         children: [
           Container(
-            width: 80,
-            height: 80,
+            width: 60,
+            height: 60,
             decoration: BoxDecoration(
                 border: Border.all(
                     color: index == 0 ? Colors.blue : Colors.grey, width: 3),
@@ -30,8 +37,8 @@ class _ProductDetailsState extends State<ProductDetails> {
             child: Center(
               child: Image.asset(
                 "assets/images/${index + 1}.png",
-                width: 50,
-                height: 50,
+                width: 40,
+                height: 40,
               ),
             ),
           ),
@@ -43,6 +50,28 @@ class _ProductDetailsState extends State<ProductDetails> {
     });
 
     return Scaffold(
+      bottomNavigationBar: Container(
+        color: appSecondColor,
+        height: 70,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
+            ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                  backgroundColor: const MaterialStatePropertyAll(Colors.blue),
+                  foregroundColor: const MaterialStatePropertyAll(Colors.white),
+                  fixedSize:
+                      MaterialStatePropertyAll(Size(size.width * .7, 50)),
+                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)))),
+              child: const Text('Buy now',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         centerTitle: true,
         leading: Padding(
@@ -107,8 +136,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                     child: Image.asset(
                       "assets/images/1.png",
                       fit: BoxFit.cover,
-                      height: size.width * .8,
-                      width: size.width * .8,
+                      height: size.width * .6,
+                      width: size.width * .6,
                     ),
                   ),
                 ),
@@ -164,11 +193,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                   )
                 ],
               ),
-              const Divider(),
-              const SizedBox(height: 8),
+              Divider(
+                color: appSecondColor,
+              ),
+              const SizedBox(height: 14),
               const Text(
-                "Select size :",
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                "Select size",
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
               const SizedBox(
                 height: 8,
@@ -182,8 +213,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                       });
                     },
                     child: AnimatedContainer(
-                        width: 50,
-                        height: 50,
+                        width: 35,
+                        height: 34,
                         margin: const EdgeInsets.only(right: 12),
                         duration: const Duration(seconds: 1),
                         decoration: BoxDecoration(
@@ -194,11 +225,60 @@ class _ProductDetailsState extends State<ProductDetails> {
                         child: Center(
                             child: Text(
                           e,
-                          style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w800),
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                              color: _selectedSize == e
+                                  ? Colors.white
+                                  : Colors.black),
                         ))),
                   );
                 }).toList(),
+              ),
+              const SizedBox(height: 14),
+              const Text(
+                "Description",
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  children: _productDescription.map((desc) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Flexible(
+                            flex: 2,
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 4),
+                              child: Icon(
+                                Icons.circle,
+                                color: Colors.black,
+                                size: 10,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          Flexible(
+                            flex: 10,
+                            child: Text(
+                              desc,
+                              style: const TextStyle(fontSize: 14),
+                              overflow: TextOverflow.clip,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
               )
             ],
           ),
