@@ -22,6 +22,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     'Its flattering silhouette and elegant design make it perfect for both casual outings and special occasions.',
     ' Crafted from premium, breathable fabric, this dress effortlessly combines comfort with style.'
   ];
+  bool isFavorite = false;
 
   @override
   void initState() {
@@ -124,12 +125,17 @@ class _ProductDetailsState extends State<ProductDetails> {
                         const MaterialStatePropertyAll(Colors.black87),
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)))),
-                onPressed: () {},
-                icon: const Padding(
-                  padding: EdgeInsets.all(4.0),
+                onPressed: () {
+                  setState(() {
+                    isFavorite = !isFavorite;
+                  });
+                },
+                icon: Padding(
+                  padding: const EdgeInsets.all(4.0),
                   child: Icon(
-                    Icons.favorite_outline,
+                    !isFavorite ? Icons.favorite_outline : Icons.favorite,
                     size: 25,
+                    color: !isFavorite ? Colors.black : Colors.red,
                   ),
                 )),
           ),
